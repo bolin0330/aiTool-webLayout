@@ -39,6 +39,13 @@ a {
     border-top: 1px solid #FFFFFF;
 }
 
+@media (max-width: 768px) {
+    .navbar2 {
+        flex-direction: column-reverse;
+    }
+}
+
+
 .navbar3 {
     display: flex;
     flex-wrap: wrap;
@@ -95,7 +102,7 @@ a {
     }
 }
 
-@media (max-width: 768) {
+@media (max-width: 768px) {
     .f-column {
     display: flex;
     flex-direction: column;
@@ -354,6 +361,10 @@ a {
     display: flex;
     justify-content: flex-end;
     text-align: right;
+    overflow: hidden;
+    background: #020202;
+    max-width: 100%;
+    height: auto;
     margin-top: 100px;
 }
 
@@ -614,3 +625,91 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
+.arrow1 {
+    animation: slide-up-1 4s linear infinite;
+  }
+  @keyframes slide-up-1 {
+    40% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    65% {
+      transform: translateY(-180px);
+      opacity: 1;
+    }
+    70% {
+      transform: translateY(-180px);
+      opacity: 0;
+    }
+    90% {
+      transform: translateY(180px);
+      opacity: 0;
+    }
+    91% {
+      transform: translateY(180px);
+      opacity: 1;
+    }
+  }
+.arrow2 {
+    animation: slide-up-2 4s linear infinite;
+  }
+  @keyframes slide-up-2 {
+    30% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    45% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    55% {
+      transform: translateY(-180px);
+      opacity: 1;
+    }
+    65% {
+      transform: translateY(-180px);
+      opacity: 0;
+    }
+    85% {
+      transform: translateY(180px);
+      opacity: 0;
+    }
+    86% {
+      transform: translateY(180px);
+      opacity: 1;
+    }
+  }
+.arrow3 {
+    animation: slide-up-3 4s linear infinite;
+  }
+  @keyframes slide-up-3 {
+    20% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-180px);
+      opacity: 1;
+    }
+    60% {
+      transform: translateY(-180px);
+      opacity: 0;
+    }
+    80% {
+      transform: translateY(180px);
+      opacity: 0;
+    }
+    81% {
+      transform: translateY(180px);
+      opacity: 1;
+    }
+  }
