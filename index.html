@@ -15,8 +15,19 @@
     <nav class="navbar container py-20 mb-40">
         <img src="img/logo.png" alt="AIlogo" width="244" height="40">
         <ul class="d-flex">
-            <li class="px-10"><a href="#">首頁</a></li>
-            <li class="px-10"><a href="#">定價</a></li>
+            <li class="px-10 d-md-none"><a href="#">首頁</a></li>
+            <li class="px-10 d-md-none"><a href="#">定價</a></li>
+            <li class="d-none d-md-block">
+                <a href="#" class="navbar-toggler">
+                    <span class="material-icons">
+                        menu
+                    </span>
+                </a>
+                <ul class="navbar-collapse d-none">
+                    <li class="display-3 mb-8"><a href="#">首頁</a></li>
+                    <li class="display-3"><a href="#">定價</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <header>
@@ -28,13 +39,13 @@
                 <img src="img/deco.png" class="arrow2">
                 <img src="img/deco.png" class="arrow3">
             </div>
-            <div class="row f-column">
+            <div class="row f-md-column">
                 <h2 class="d-inline-block col-4 h3 h5-md mb-md-24">我們的服務</h2>
                 <p class="d-inline-block col-8 h1 h2-md">我們相信透過AI技術，<br>包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。</p>
             </div>
         </section> 
         <section class="container mb-160 mb-md-120">      
-            <ul class="row f-column">
+            <ul class="row f-md-column">
                 <li class="col-4">
                     <div class="border px-40 py-80 h-100">
                         <span class="material-icons display-3 mb-20">flash_on</span>
@@ -60,7 +71,7 @@
         </section>
         <section class="container mb-160 mb-md-48">
             <h3 class="h3 h5-md mb-80 mb-md-24">來自合作夥伴</h3>
-                <div class="enterprise-group swiper">
+                <div class="enterprise-logo swiper">
                     <div class="swiper enterprise-swiper">
                         <ul class="swiper-wrapper">
                             <li class="swiper-slide"><img src="img/enterprise.png" alt=""></li>
@@ -152,25 +163,52 @@
                 <input type="text" class="search-bar" placeholder="輸入關鍵字搜尋">
             </div>
             <div class="container filter mb-40">
-                <button class="btn btn-dark">
-                    篩選
-                    <span class="material-icons filter-icon">filter_alt</span>
-                </button>
+                <div class="dropdown">
+                    <button class="btn btn-dark">
+                        篩選
+                        <span class="material-icons filter-icon">filter_alt</span>
+                    </button>
+                    <ul class="dropdown-menu d-none">
+                        <li><span class="dropdown-item-text">AI 模型</span></li>
+                        <li><a class="dropdown-item" href="#">所有模型</a></li>
+                        <li><a class="dropdown-item" href="#">杰杰</a></li>
+                        <li><a class="dropdown-item" href="#">琪琪</a></li>
+                        <li><a class="dropdown-item" href="#">昊昊</a></li>
+                        <li>
+                          <div class="dropdown-divider"></div>
+                        </li>
+                        <li><span class="dropdown-item-text">類型</span></li>
+                        <li><a class="dropdown-item" href="#">所有類型</a></li>
+                        <li><a class="dropdown-item" href="#">問答服務</a></li>
+                        <li><a class="dropdown-item" href="#">虛擬客服</a></li>
+                        <li><a class="dropdown-item" href="#">生活應用</a></li>
+                        <li><a class="dropdown-item" href="#">程式知識</a></li>
+                        <li><a class="dropdown-item" href="#">翻譯助手</a></li>
+                        <li><a class="dropdown-item" href="#">行銷文案</a></li>
+                    </ul>
+                </div>
                 <ul class="filter-list">
-                    <li class="filter-list-selection">聊天</li>
-                    <li class="filter-list-selection">影像辨識</li>
-                    <li class="filter-list-selection">翻譯</li>
-                    <li class="filter-list-selection">行銷</li>
-                    <li class="filter-list-selection">客服</li>
-                    <li class="filter-list-selection">生產力</li>
+                    <li class="filter-list-selection active">全部</li>
+                    <li class="filter-list-selection">問答服務</li>
+                    <li class="filter-list-selection">虛擬客服</li>
+                    <li class="filter-list-selection">生活應用</li>
+                    <li class="filter-list-selection">程式知識</li>
+                    <li class="filter-list-selection">翻譯助手</li>
+                    <li class="filter-list-selection">行銷文案</li>
                 </ul>
-                <button class="btn btn-dark">
-                    由新到舊
-                    <span class="material-icons filter-icon">expand_more</span>
-                </button>
+                <div class="dropdown">
+                    <button class="btn btn-dark">
+                        由新到舊
+                        <span class="material-icons filter-icon">expand_more</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end d-none">
+                        <li><a id="desc" class="dropdown-item" href="#">由新到舊</a></li>
+                        <li><a id="asc" class="dropdown-item" href="#">由舊到新</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="container mb-40">
-                <ul class="row card-tidy f-column">
+                <ul class="row card-tidy f-md-column">
                     <li class="col-4 card">
                         <div class="h-100 card-frame">
                             <div class="card-exhibit">
@@ -288,17 +326,25 @@
                 </ul>
             </div>
             <nav class="container">
-                <ul class="page">
-                    <li><a href="#" class="page-front">1</a></li>
+                <!-- <ul class="page">
+                    <li><a href="#" class="page-gui page-front active">1</a></li>
                     <li><a href="#" class="page-gui">2</a></li>
                     <li><a href="#" class="page-gui">3</a></li>
                     <li><a href="#" class="page-gui">4</a></li>
                     <li><a href="#" class="page-gui"><span class="material-icons">keyboard_arrow_right</span></a></li>
+                </ul> -->
+                <ul class="page">
+                    <li class="page-gui active">1</li>
+                    <li class="page-gui">2</li>
+                    <li class="page-gui">3</li>
+                    <li class="page-gui">4</li>
+                    <li class="page-gui"><span class="material-icons">keyboard_arrow_right</span></li>
+
                 </ul>
             </nav>
         </section>
         <section class="container">
-            <div class="service mb-160 f-column">
+            <div class="service mb-160 f-md-column">
                 <h2 class="h1 h2-md mb-40 mb-md-32">現在就來建立<br class="d-none d-md-block">屬於你的服務吧</h2>
                 <button type="button" class="btn btn-light">開始使用
                     <span class="material-icons filter-icon">
@@ -323,9 +369,10 @@
                 <li><a href="https://x.com" target="_blank" class="px-10">Twitter</a></li>
                 <li><a href="https://www.linkedin.com/in/bolin-chen-257366208" target="_blank" class="px-10">LinkedIn</a></li>
             </ul>
-            <a href="#" class="social-media">Back to top<span class="material-icons filter-icon">arrow_upward</span></a>
+            <a href="#" id="btn-top" class="social-media">Back to top<span class="material-icons filter-icon">arrow_upward</span></a>
         </nav>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./all.js"></script>
 </body>
