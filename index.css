@@ -673,12 +673,6 @@ a:hover {
     border: 1px solid #f2f2f2;
 }
 
-@media (max-width: 768px) {
-    .card-gg {
-    border-radius: 40px;
-    }
-}
-
 .card-exhibit {
     overflow: hidden;
 }
