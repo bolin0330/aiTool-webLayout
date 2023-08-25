@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fulfillmentToken fulfillmentType="buy" xmlns="http://ns.adobe.com/adept">
+    <distributor>urn:uuid:00000000-0000-0000-0000-000000000001</distributor>
+    <operatorURL>http://books.google.com/books/acs4/fulfillment</operatorURL>
+    <expiration>2023-08-24T18:39:41-07:00</expiration>
+    <transaction>ge:f2ad45c7-bbd5-9265-ebd4-c17888439799:1692926681184083</transaction>
+    <userId>09331786287163670980</userId>
+    <resourceItemInfo>
+        <resource>urn:uuid:f2ad45c7-bbd5-9265-ebd4-c17888439799</resource>
+        <resourceItem>1</resourceItem>
+        <src>https://books.google.com/books/download/%E8%95%AD%E7%91%9F%E5%AF%A1%E4%BA%BA_%E5%89%B5%E6%A5%AD_%E6%96%87%E5%8C%96_%E7%A7%91%E6%8A%80_%E5%B9%B9%E8%A9%B1.pdf?acsid=urn:uuid:f2ad45c7-bbd5-9265-ebd4-c17888439799&amp;output=acs4_book_bytes&amp;ar=919020d1b743e8cb37c73a9385ea15b7</src>
+        <downloadType>simple</downloadType>
+    </resourceItemInfo>
+    <hmac>SuRIi8X14isvEM2Cw2fEQGlf0jw=</hmac>
+</fulfillmentToken>
