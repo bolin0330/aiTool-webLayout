@@ -119,3 +119,23 @@ function renderWorks() {
 
   list.innerHTML = works;
 }
+
+function changePage(pagesData) {
+  const pageLinks = document.querySelectorAll('li.page-gui')
+  let pageId = '';
+
+  pageLinks.forEach(function(item) {
+
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      pageId = e.target.dataset.page;
+      data.page = Number(pageId);
+
+      if (!pageId) {
+        data.page = Number(pagesData.current_page) + 1
+      }
+
+      getData(data);
+    });
+  });
+}
