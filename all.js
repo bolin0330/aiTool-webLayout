@@ -27,13 +27,6 @@ $(function () {
   })
 });
 
-const enterpriseSwiper = new Swiper ( ".enterprise-swiper", {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    freeMode: true,
-    grabCursor: true
-})
-
 const commentSwipper = new Swiper(".comment-swiper", {
   slidesPerView: 1,
   spaceBetween: 24,
@@ -74,10 +67,10 @@ const data = {
 let worksData = [];
 let pagesData = {};
 
-function getData({ type, sort, page, search }) {
+const getData = ({ type, sort, page, search }) => {
   const apiUrl = `${apiPath}/api/v1/works?sort=${sort}&page=${page}&${type ? `type=${type}&` : ''}${search ? `search=${search}` : ''}`
   axios.get(apiUrl)
-    .then(function(res) {
+    .then((res) => {
       worksData = res.data.ai_works.data;
       pagesData = res.data.ai_works.page;
 
@@ -88,10 +81,10 @@ function getData({ type, sort, page, search }) {
 
 getData(data);
 
-function renderWorks() {
+const renderWorks = () => {
   let works = '';
 
-  worksData.forEach(function(item) {
+  worksData.forEach((item) => {
     works += /*html*/`<li class="col-4 card">
       <div class="h-100 card-frame">
         <div class="card-exhibit">
@@ -120,13 +113,13 @@ function renderWorks() {
   list.innerHTML = works;
 }
 
-function changePage(pagesData) {
-  const pageLinks = document.querySelectorAll('li.page-gui')
+const changePage = (pagesData) => {
+  const pageLinks = document.querySelectorAll('li.page-gui');
   let pageId = '';
 
-  pageLinks.forEach(function(item) {
+  pageLinks.forEach((item) => {
 
-    item.addEventListener('click', function(e) {
+    item.addEventListener('click', (e) => {
       e.preventDefault();
       pageId = e.target.dataset.page;
       data.page = Number(pageId);
@@ -138,4 +131,26 @@ function changePage(pagesData) {
       getData(data);
     });
   });
+}
+
+const renderPages = () => {
+  let pageStr = '';
+
+  for (let i = 1; i <= pagesData.total_pages; i += 1) {
+    pageStr += /*html*/`<li class="page-gui ${pagesData.current_page == i ? 'active' : ''}" >
+      <a class="page-link ${pagesData.current_page == i ? 'disabled' : ''}" href="#"  data-page="${i}">${i}</a>
+    </li>`
+  };
+
+  if (pagesData.has_next) {
+    pageStr +=  /*html*/`<li class="page-gui">
+        <span class="material-icons">
+          chevron_right
+        </span>
+      </a>
+    </li>`
+  };
+  pagination.innerHTML = pageStr;
+
+  changePage(pagesData);
 }
