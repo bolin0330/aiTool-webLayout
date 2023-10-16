@@ -154,3 +154,19 @@ const renderPages = () => {
 
   changePage(pagesData);
 }
+
+const btnSort = document.querySelector('#btn-sort');
+const desc = document.querySelector('#btn-desc');
+const asc = document.querySelector('#btn-asc');
+desc.addEventListener('click', (e) => {
+  e.preventDefault();
+  data.sort = 0;
+  getData(data);
+  btnSort.innerHTML = '由新到舊<span class="material-icons filter-icon">expand_more</span>';
+})
+asc.addEventListener('click', (e) => {
+  e.preventDefault();
+  data.sort = 1
+  getData(data);
+  btnSort.innerHTML = '由舊到新<span class="material-icons filter-icon">expand_more</span>';
+})

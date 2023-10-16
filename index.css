@@ -814,16 +814,16 @@ a:hover {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-960px);
+        transform: translateX(-768px);
     }
 }
 
 @keyframes slide-right{
-    0% {
+    100% {
         transform: translateX(0);
     }
-    100% {
-        transform: translateX(960px);
+    0% {
+        transform: translateX(-768px);
     }
 }
 
