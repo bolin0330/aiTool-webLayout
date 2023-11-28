@@ -19,6 +19,9 @@ $(function () {
   $('#btn-top').click(function () {
     $('html').animate({scrollTop: 0}, 1000);
   });
+  $('#btn-start').click(function () {
+    $('html').animate({scrollTop: $('.tool>.container>h2').offset().top}, 1000);
+  });
   $('.faq-q').click(function (e) {
     e.preventDefault();
     $(this).find('.add-icon').toggleClass('d-none');
@@ -169,4 +172,25 @@ asc.addEventListener('click', (e) => {
   data.sort = 1
   getData(data);
   btnSort.innerHTML = '由舊到新<span class="material-icons filter-icon">expand_more</span>';
+})
+
+const filterBtns = document.querySelectorAll('.filter-list-selection')
+filterBtns.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.textContent === '所有模型') {
+      data.type = '';
+    } else {
+      data.type = item.textContent;
+    }
+    getData(data)
+  })
+})
+
+const search = document.querySelector('.search-bar');
+search.addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) {
+    data.search = search.value
+    data.page = 1
+    getData(data);
+  }
 })

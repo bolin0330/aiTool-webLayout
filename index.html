@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 工具王 | 首頁</title>
+    <link href="img/webicon.ico" rel="shortcut icon"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jQuery.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +35,7 @@
     <header>
         <section class="container mb-80">
             <h2 class="display-2 mb-40 h1-md">透過<br>AI工具王的<br>智慧模型<br>讓您的業務效率倍增</h2>
-            <button type="button" class="btn btn-light">開始使用</button>
+            <button type="button" id="btn-start" class="btn btn-light">開始使用</button>
             <div class="deco mb-160 mb-md-120">
                 <img src="img/deco.png" class="deco-arrow1">
                 <img src="img/deco.png" class="deco-arrow2">
@@ -168,9 +170,10 @@
                     <ul class="dropdown-menu d-none">
                         <li><span class="dropdown-item-text">AI 模型</span></li>
                         <li><a class="dropdown-item" href="#">所有模型</a></li>
-                        <li><a class="dropdown-item" href="#">杰杰</a></li>
-                        <li><a class="dropdown-item" href="#">琪琪</a></li>
-                        <li><a class="dropdown-item" href="#">昊昊</a></li>
+                        <li><a class="dropdown-item" href="#">GPT-4</a></li>
+                        <li><a class="dropdown-item" href="#">Claude 2</a></li>
+                        <li><a class="dropdown-item" href="#">PaLM 2</a></li>
+                        <li><a class="dropdown-item" href="#">Grok-1</a></li>
                         <li>
                             <div class="dropdown-divider"></div>
                         </li>
@@ -205,7 +208,7 @@
                 </div>
             </div>
             <div class="container mb-40">
-                <ul class="row card-tidy f-md-column">
+                <ul id="#list" class="row card-tidy f-md-column">
                     <li class="col-4 card">
                         <div class="h-100 card-frame">
                             <div class="card-exhibit">
@@ -217,7 +220,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4 class="h6">AI 模型</h4>
-                                <p>卡卡</p>
+                                <p>Claude 2</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#問答服務</a>
@@ -236,7 +239,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4 class="h6">AI 模型</h4>
-                                <p>杰杰</p>
+                                <p>GPT-4</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#生活應用</a>
@@ -255,7 +258,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4 class="h6">AI 模型</h4>
-                                <p>琪琪</p>
+                                <p>Grok-1</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#翻譯助手</a>
@@ -274,7 +277,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4 class="h6">AI 模型</h4>
-                                <p>昊昊</p>
+                                <p>PaLM 2</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#行銷文案</a>
@@ -293,7 +296,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4 class="h6">AI 模型</h4>
-                                <p>卡卡</p>
+                                <p>Claude 2</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#虛擬客服</a>
@@ -312,7 +315,7 @@
                             </div>
                             <div class="card-drawer">
                                 <h4>AI 模型</h4>
-                                <p>杰杰</p>
+                                <p>GPT-4</p>
                             </div>
                             <div class="card-drawer">
                                 <a href="#">#生活應用</a>
@@ -322,7 +325,7 @@
                     </li>
                 </ul>
             </div>
-            <nav class="container">
+            <nav id="pagination" class="container">
                 <ul class="page">
                     <li class="page-gui active">1</li>
                     <li class="page-gui">2</li>
@@ -336,9 +339,11 @@
         <section class="container">
             <div class="service mb-160 f-md-column">
                 <h2 class="h1 h2-md mb-40 mb-md-32">現在就來建立<br class="d-none d-md-block">屬於你的服務吧</h2>
-                <button type="button" class="btn btn-light">開始使用
-                    <span class="material-icons filter-icon">call_made</span>
-                </button>
+                <form action="./pricing.html">
+                    <button type="submit" href="./pricing.html" class="btn btn-light">開始使用
+                        <span class="material-icons filter-icon">call_made</span>
+                    </button>
+                </form>
             </div>
             <div class="navbar2 py-80">
                 <div class="display-3 h1-md">
@@ -363,11 +368,10 @@
             </a>
         </nav>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="./all.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/all.js"></script>
+    
 </body>
 
 </html>
