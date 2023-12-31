@@ -22,6 +22,9 @@ $(function () {
   $('#btn-start').click(function () {
     $('html').animate({scrollTop: $('.tool>.container>h2').offset().top}, 1000);
   });
+  $('.price-link').click(function () {
+    $('html').animate({scrollTop: $('.tool>.container>h2').offset().top}, 1000);
+  });
   $('.faq-q').click(function (e) {
     e.preventDefault();
     $(this).find('.add-icon').toggleClass('d-none');
