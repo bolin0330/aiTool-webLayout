@@ -4,7 +4,7 @@
 ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
 ![AXIOS](https://img.shields.io/badge/axios-6723e9?style=for-the-badge&logo=axios&logoColor=white)
 # AI工具王
-#### [Github Page](https://bolin0330.github.io/webLayout-aiTool/)
+#### [Github Page](https://bolin0330.github.io/aiTool-webLayout/)
 #### 介接 Get API，撈取Open AI工具列表，並整合在頁面上
 
 ## 頁面
