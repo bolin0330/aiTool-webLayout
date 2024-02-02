@@ -60,8 +60,8 @@ const commentSwipper = new Swiper(".comment-swiper", {
 })
 
 const apiPath = 'https://2023-engineer-camp.zeabur.app';
-const list = document.querySelector('#list');
-const pagination = document.querySelector('#pagination');
+const list = document.getElementById('list');
+const pagination = document.getElementById('pagination');
 
 const data = {
   type: '',
@@ -74,15 +74,19 @@ let worksData = [];
 let pagesData = {};
 
 const getData = ({ type, sort, page, search }) => {
-  const apiUrl = `${apiPath}/api/v1/works?sort=${sort}&page=${page}&${type ? `type=${type}&` : ''}${search ? `search=${search}` : ''}`
+  const apiUrl = `${apiPath}/api/v1/works?sort=${sort}&page=${page}&${type ? `type=${type}&` : ''}${search ? `search=${search}` : ''}`;
   axios.get(apiUrl)
     .then((res) => {
+      console.log(res);
       worksData = res.data.ai_works.data;
       pagesData = res.data.ai_works.page;
 
       renderWorks();
       renderPages();
     })
+    .catch((error) => {
+      console.log(error); 
+    });
 }
 
 getData(data);
@@ -91,7 +95,7 @@ const renderWorks = () => {
   let works = '';
 
   worksData.forEach((item) => {
-    works += /*html*/`<li class="col-4 card">
+    works += `<li class="col-4 card">
       <div class="h-100 card-frame">
         <div class="card-exhibit">
           <img class="w-100 card-zooming" src="${item.imageUrl}" alt="ai image">
@@ -131,7 +135,7 @@ const changePage = (pagesData) => {
       data.page = Number(pageId);
 
       if (!pageId) {
-        data.page = Number(pagesData.current_page) + 1
+        data.page = Number(pagesData.current_page) + 1;
       }
 
       getData(data);
@@ -143,13 +147,13 @@ const renderPages = () => {
   let pageStr = '';
 
   for (let i = 1; i <= pagesData.total_pages; i += 1) {
-    pageStr += /*html*/`<li class="page-gui ${pagesData.current_page == i ? 'active' : ''}" >
+    pageStr += `<li class="page-gui ${pagesData.current_page == i ? 'active' : ''}" >
       <a class="page-link ${pagesData.current_page == i ? 'disabled' : ''}" href="#"  data-page="${i}">${i}</a>
     </li>`
   };
 
   if (pagesData.has_next) {
-    pageStr +=  /*html*/`<li class="page-gui">
+    pageStr += `<li class="page-gui">
         <span class="material-icons">
           chevron_right
         </span>
@@ -161,9 +165,9 @@ const renderPages = () => {
   changePage(pagesData);
 }
 
-const btnSort = document.querySelector('#btn-sort');
-const desc = document.querySelector('#btn-desc');
-const asc = document.querySelector('#btn-asc');
+const btnSort = document.getElementById('btn-sort');
+const desc = document.getElementById('btn-desc');
+const asc = document.getElementById('btn-asc');
 desc.addEventListener('click', (e) => {
   e.preventDefault();
   data.sort = 0;
@@ -172,12 +176,12 @@ desc.addEventListener('click', (e) => {
 })
 asc.addEventListener('click', (e) => {
   e.preventDefault();
-  data.sort = 1
+  data.sort = 1;
   getData(data);
   btnSort.innerHTML = '由舊到新<span class="material-icons filter-icon">expand_more</span>';
 })
 
-const filterBtns = document.querySelectorAll('.filter-list-selection')
+const filterBtns = document.querySelectorAll('.filter-list-selection');
 filterBtns.forEach((item) => {
   item.addEventListener('click', () => {
     if (item.textContent === '所有模型') {
@@ -185,15 +189,15 @@ filterBtns.forEach((item) => {
     } else {
       data.type = item.textContent;
     }
-    getData(data)
+    getData(data);
   })
 })
 
-const search = document.querySelector('.search-bar');
+const search = document.getElementById('search');
 search.addEventListener('keydown', (e) => {
   if (e.keyCode === 13) {
-    data.search = search.value
-    data.page = 1
+    data.search = search.value;
+    data.page = 1;
     getData(data);
   }
 })
